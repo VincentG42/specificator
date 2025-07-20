@@ -1,7 +1,7 @@
 <template>
-  <div id="app" class="min-h-screen bg-neutral-50 font-sans text-base text-neutral-700">
+  <div id="app" class="min-h-screen bg-neutral-50 font-sans text-base text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
     <!-- Header avec steps -->
-    <header class="bg-white shadow-sm border-b border-neutral-200 sticky top-0 z-50">
+    <header class="bg-neutral-100 shadow-sm border-b border-neutral-200 sticky top-0 z-50 dark:bg-neutral-900 dark:border-neutral-700">
       <div class="max-w-7xl mx-auto px-6 py-4">
         <nav class="flex items-center justify-between">
           <!-- Logo -->
@@ -9,7 +9,7 @@
             <div class="w-8 h-8 bg-accent-600 rounded-lg flex items-center justify-center">
               <span class="text-white font-bold text-sm">📋</span>
             </div>
-            <h1 class="text-xl font-bold text-neutral-900">Générateur de Specs</h1>
+            <h1 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Générateur de Specs</h1>
           </router-link>
           
           <!-- Steps progression (simplified for now) -->
@@ -18,11 +18,14 @@
           </div>
           
           <!-- Actions -->
-          <div v-if="isQuestionnaireRoute" class="flex items-center space-x-3">
-            <span class="text-sm text-neutral-500">{{ projectProgress }}% complété</span>
-            <button @click="saveProject" class="px-4 py-2 bg-neutral-100 text-neutral-700 rounded-md hover:bg-neutral-200 transition-colors duration-200 text-sm font-medium">
-              💾 Sauvegarder
-            </button>
+          <div class="flex items-center space-x-3">
+            <div v-if="isQuestionnaireRoute" class="flex items-center space-x-3">
+              <span class="text-sm text-neutral-500 dark:text-neutral-400">{{ projectProgress }}% complété</span>
+              <button @click="saveProject" class="px-4 py-2 bg-neutral-100 text-neutral-700 rounded-md hover:bg-neutral-200 transition-colors duration-200 text-sm font-medium dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-600">
+                💾 Sauvegarder
+              </button>
+            </div>
+            <ThemeSwitcher />
           </div>
         </nav>
       </div>
@@ -36,11 +39,11 @@
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 translate-y-[-10px]"
     >
-      <div v-if="showSaveConfirmation" class="fixed top-4 right-4 bg-success-50 rounded-lg border border-success-200 p-4 flex items-center space-x-3 shadow-lg">
+      <div v-if="showSaveConfirmation" class="fixed top-4 right-4 bg-success-50 rounded-lg border border-success-200 p-4 flex items-center space-x-3 shadow-lg dark:bg-success-900 dark:border-success-800 dark:text-success-100">
         <span class="w-5 h-5 bg-success-500 rounded-full flex items-center justify-center">
           <span class="text-white text-xs">✓</span>
         </span>
-        <span class="text-sm text-success-700 font-medium">Sauvegardé !</span>
+        <span class="text-sm text-success-700 font-medium dark:text-success-100">Sauvegardé !</span>
       </div>
     </transition>
     
@@ -50,8 +53,8 @@
     </main>
     
     <!-- Footer (optionnel) -->
-    <footer class="bg-white border-t border-neutral-200 mt-16">
-      <div class="max-w-7xl mx-auto px-6 py-4 text-center text-neutral-500 text-sm">
+    <footer class="bg-white border-t border-neutral-200 mt-16 dark:bg-neutral-800 dark:border-neutral-700">
+      <div class="max-w-7xl mx-auto px-6 py-4 text-center text-neutral-500 text-sm dark:text-neutral-400">
         <p>Avertissement : Cet outil génère des spécifications basées sur vos réponses. Vous êtes responsable de la validation et de l'exactitude du contenu produit. Les spécifications générées vous appartiennent entièrement.</p>
       </div>
     </footer>
@@ -62,6 +65,7 @@
 import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useProjectStore } from './stores/projectStore';
+import ThemeSwitcher from './components/ThemeSwitcher.vue';
 
 const route = useRoute();
 const projectStore = useProjectStore();

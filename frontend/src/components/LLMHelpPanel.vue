@@ -1,14 +1,14 @@
 <template>
   <div v-if="show" class="fixed inset-0 bg-neutral-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center z-50" @click.self="closePanel">
-    <div class="relative mx-auto p-5 border w-full max-w-2xl shadow-lg rounded-md bg-white transform transition-all duration-300 ease-out scale-95 opacity-0" :class="{'scale-100 opacity-100': show}">
+    <div class="relative mx-auto p-5 border w-full max-w-2xl shadow-lg rounded-md bg-neutral-100 dark:bg-neutral-800 dark:border-neutral-700">
       <div class="mt-3 text-center">
-        <h3 class="text-lg leading-6 font-medium text-accent-700">🤖 Aide contextuelle</h3>
+        <h3 class="text-lg leading-6 font-medium text-accent-700 dark:text-accent-300">🤖 Aide contextuelle</h3>
         <div class="mt-4 px-7 py-3 text-left">
-          <p class="text-sm text-neutral-600 mb-4">Contexte de la question :</p>
-          <div class="bg-neutral-100 p-3 rounded-md text-sm text-neutral-800 mb-4 whitespace-pre-wrap">{{ questionContext }}</div>
+          <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-4">Contexte de la question :</p>
+          <div class="bg-neutral-100 p-3 rounded-md text-sm text-neutral-800 mb-4 whitespace-pre-wrap dark:bg-neutral-700 dark:text-neutral-200">{{ questionContext }}</div>
 
-          <label for="userQuestion" class="block text-sm font-medium text-neutral-700 mb-2">Votre question spécifique (optionnel) :</label>
-          <textarea id="userQuestion" v-model="userQuestion" rows="3" class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:ring-accent-500 focus:border-accent-500" :disabled="loading"></textarea>
+          <label for="userQuestion" class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">Votre question spécifique (optionnel) :</label>
+          <textarea id="userQuestion" v-model="userQuestion" rows="3" class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:ring-accent-500 focus:border-accent-500 dark:bg-neutral-700 dark:border-neutral-600 dark:text-neutral-100" :disabled="loading"></textarea>
 
           <div class="flex justify-between items-center mt-4">
             <button @click="requestHelp" :disabled="loading || quotaExceeded" class="px-4 py-2 bg-accent-500 text-white rounded-md hover:bg-accent-600 disabled:bg-neutral-400 transition-colors duration-200">
@@ -17,17 +17,17 @@
             </button>
           </div>
 
-          <div v-if="llmResponse" class="mt-6 p-4 bg-accent-50 border border-accent-200 rounded-md text-left">
-            <h4 class="font-semibold text-accent-800 mb-2">Réponse de l'IA :</h4>
-            <p class="text-sm text-accent-700 whitespace-pre-wrap">{{ llmResponse }}</p>
+          <div v-if="llmResponse" class="mt-6 p-4 bg-accent-50 border border-accent-200 rounded-md text-left dark:bg-accent-900 dark:border-accent-800">
+            <h4 class="font-semibold text-accent-800 dark:text-accent-200 mb-2">Réponse de l'IA :</h4>
+            <p class="text-sm text-accent-700 dark:text-accent-300 whitespace-pre-wrap">{{ llmResponse }}</p>
           </div>
-          <div v-if="error" class="mt-6 p-4 bg-error-50 border border-error-200 rounded-md text-left text-error-700 text-sm">
+          <div v-if="error" class="mt-6 p-4 bg-error-50 border border-error-200 rounded-md text-left text-error-700 text-sm dark:bg-error-900 dark:border-error-800 dark:text-error-100">
             <p>Erreur : {{ error }}</p>
-            <button v-if="retryAvailable" @click="requestHelp" class="mt-2 text-error-600 hover:underline">Réessayer</button>
+            <button v-if="retryAvailable" @click="requestHelp" class="mt-2 text-error-600 hover:underline dark:text-error-400">Réessayer</button>
           </div>
         </div>
         <div class="items-center px-4 py-3">
-          <button @click="closePanel" class="px-4 py-2 bg-neutral-200 text-neutral-800 rounded hover:bg-neutral-300">
+          <button @click="closePanel" class="px-4 py-2 bg-neutral-200 text-neutral-800 rounded hover:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-600">
             Fermer
           </button>
         </div>

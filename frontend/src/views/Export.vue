@@ -1,17 +1,17 @@
 <template>
   <div class="max-w-4xl mx-auto text-center py-16">
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">
+    <h1 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
       🎉 Spécifications générées !
     </h1>
-    <p class="text-lg text-gray-600 mb-8">
+    <p class="text-lg text-neutral-600 dark:text-neutral-300 mb-8">
       Vos spécifications sont prêtes à être téléchargées.
     </p>
 
-    <button @click="downloadExport" class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
+    <button @click="downloadExport" class="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
       ⬇️ Télécharger les spécifications
     </button>
 
-    <div class="mt-12 text-gray-500 text-sm">
+    <div class="mt-12 text-neutral-500 text-sm dark:text-neutral-400">
       <p>Merci d'avoir utilisé le Générateur de Spécifications.</p>
       <p>N'oubliez pas de valider et d'affiner le contenu généré.</p>
     </div>

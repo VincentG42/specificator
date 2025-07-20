@@ -3,7 +3,7 @@
 @theme {
   /* Définition de votre palette de couleurs personnalisée */
 
-  /* Couleurs neutres (basées sur le cyan) */
+  /* Couleurs neutres (basées sur le cyan) - Light Mode */
   --color-neutral-50: #F0F8F9;
   --color-neutral-100: #E1F0F2;
   --color-neutral-200: #C2E0E5;
@@ -35,4 +35,44 @@
   /* Pour avoir des classes comme 'bg-neutral' (sans nuance) */
   --color-neutral: var(--color-neutral-500);
   --color-accent: var(--color-accent-500);
+}
+
+/* Dark Mode Colors */
+:root.dark {
+  /* Couleurs neutres (basées sur le cyan) - Dark Mode */
+  --color-neutral-50: #005260; /* Darkest for background */
+  --color-neutral-100: #08748B;
+  --color-neutral-200: #27869A;
+  --color-neutral-300: #4698A9;
+  --color-neutral-400: #65AAB9;
+  --color-neutral-500: #84BDC9;
+  --color-neutral-600: #A3CFD8;
+  --color-neutral-700: #C2E0E5;
+  --color-neutral-800: #E1F0F2;
+  --color-neutral-900: #F0F8F9; /* Lightest for text */
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-neutral-100);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-400);
+  border-radius: 10px;
+}
+
+/* Dark Mode Scrollbar Styles */
+:root.dark ::-webkit-scrollbar-track {
+  background: var(--color-neutral-800);
+}
+
+:root.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-500);
 }
