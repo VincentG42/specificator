@@ -14,7 +14,7 @@
         <button @click="showNewProjectModal = true" class="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
           🚀 Nouveau projet
         </button>
-        <button @click="showProjectList = true" class="bg-white hover:bg-neutral-50 text-neutral-700 px-8 py-4 rounded-lg font-semibold text-lg border border-neutral-200 transition-colors duration-200">
+        <button @click="showProjectList = true" class="bg-neutral-50 hover:bg-neutral-100 text-neutral-700 px-8 py-4 rounded-lg font-semibold text-lg border border-neutral-200 transition-colors duration-200">
           📂 Charger un projet
         </button>
       </div>

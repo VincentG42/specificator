@@ -1,14 +1,14 @@
 <template>
-  <div class="bg-white rounded-lg p-6 border border-neutral-200">
-    <div class="flex items-start justify-between">
-      <div class="flex-1">
+  <div class="bg-white rounded-lg p-4 sm:p-6 border border-neutral-200">
+    <div class="flex flex-col sm:flex-row items-start justify-between">
+      <div class="flex-1 w-full">
         <h4 class="font-medium text-neutral-900 mb-3">{{ question.text }}</h4>
         
         <div v-if="question.type === 'textarea'">
           <textarea 
             :value="answerValue"
             @input="updateValue($event.target.value)"
-            class="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-200 resize-none"
+            class="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-200 resize-none"
             rows="4"
             :placeholder="question.placeholder"
           ></textarea>
@@ -19,7 +19,7 @@
             :value="answerValue"
             @input="updateValue($event.target.value)"
             type="text"
-            class="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-200"
+            class="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-200"
             :placeholder="question.placeholder"
           />
         </div>
@@ -30,7 +30,6 @@
               type="radio"
               :value="option"
               :checked="answerValue === option"
-              @change="updateValue(option)"
               class="w-5 h-5 text-accent-600 border-neutral-300 rounded-full focus:ring-accent-600"
             />
             <span class="text-neutral-700">{{ option }}</span>
@@ -50,7 +49,7 @@
           </label>
         </div>
       </div>
-      <div class="flex space-x-2 ml-4">
+      <div class="flex justify-end sm:justify-start mt-4 sm:mt-0 sm:ml-4 w-full sm:w-auto">
         <button @click="$emit('help', questionKey)" class="px-3 py-1 bg-accent-500 text-white rounded-md hover:bg-accent-600 transition-colors duration-200 text-sm font-medium">
           🤖 Aide
         </button>

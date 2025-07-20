@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- En-tête section -->
     <div class="mb-8">
       <div class="flex items-center justify-between mb-4">
@@ -33,17 +33,17 @@
     </div>
     
     <!-- Navigation -->
-    <div class="flex justify-between items-center mt-12 pt-8 border-t border-neutral-200 bg-neutral-100 min-h-[100px] p-4 rounded-lg">
+    <div class="flex flex-col sm:flex-row justify-between items-center mt-12 pt-8 border-t border-neutral-200 bg-neutral-100 min-h-[100px] p-4 rounded-lg space-y-4 sm:space-y-0">
       <button v-if="currentSectionIndex > 0"
               @click="previousSection"
-              class="flex items-center space-x-2 px-6 py-3 text-accent-700 font-semibold rounded-lg border-2 border-accent-500 hover:bg-accent-100 transition-colors duration-200">
+              class="flex items-center justify-center space-x-2 w-full sm:w-auto px-4 py-2 sm:px-8 sm:py-4 text-neutral-700 font-semibold rounded-lg border-2 border-neutral-500 hover:bg-neutral-200 transition-colors duration-200 text-base sm:text-lg shadow-md">
         <span>←</span>
         <span>Section précédente</span>
       </button>
-      <div v-else></div>
+      <div v-else class="w-full sm:w-auto"></div>
       
       <button @click="nextSection"
-              class="flex items-center space-x-2 px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white rounded-lg font-semibold text-lg shadow-md transition-all duration-200">
+              class="flex items-center justify-center space-x-2 w-full sm:w-auto px-4 py-2 sm:px-8 sm:py-4 bg-accent-500 hover:bg-accent-600 text-white rounded-lg font-semibold text-base sm:text-lg shadow-md transition-all duration-200">
         <span>{{ isLastSection ? 'Terminer' : 'Section suivante' }}</span>
         <span v-if="!isLastSection">→</span>
       </button>

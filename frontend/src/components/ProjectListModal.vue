@@ -12,8 +12,8 @@
           </div>
           <ul v-else-if="projects.length" class="space-y-3">
             <li v-for="project in projects" :key="project.id" @click="selectProject(project.id)"
-                class="p-4 bg-neutral-50 rounded-lg hover:bg-accent-100 cursor-pointer border border-neutral-200 text-left">
-              <p class="font-semibold text-accent-700">{{ project.name }}</p>
+                class="p-4 bg-neutral-50 rounded-lg hover:bg-neutral-100 cursor-pointer border border-neutral-200 text-left">
+              <p class="font-semibold text-neutral-700">{{ project.name }}</p>
               <p class="text-sm text-neutral-500">Dernière modification : {{ new Date(project.updated_at).toLocaleDateString() }}</p>
             </li>
           </ul>

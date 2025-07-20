@@ -3,19 +3,19 @@
 @theme {
   /* Définition de votre palette de couleurs personnalisée */
 
-  /* Couleurs neutres (base) */
-  --color-neutral-50: #F9F7F6;
-  --color-neutral-100: #F0EDEB;
-  --color-neutral-200: #E2DED9;
-  --color-neutral-300: #D0C9C2;
-  --color-neutral-400: #B8B0A8;
-  --color-neutral-500: #9E948A;
-  --color-neutral-600: #7F766E;
-  --color-neutral-700: #615A54;
-  --color-neutral-800: #433F3A;
-  --color-neutral-900: #252321;
+  /* Couleurs neutres (basées sur le cyan) */
+  --color-neutral-50: #F0F8F9;
+  --color-neutral-100: #E1F0F2;
+  --color-neutral-200: #C2E0E5;
+  --color-neutral-300: #A3CFD8;
+  --color-neutral-400: #84BDC9;
+  --color-neutral-500: #65AAB9;
+  --color-neutral-600: #4698A9;
+  --color-neutral-700: #27869A;
+  --color-neutral-800: #08748B;
+  --color-neutral-900: #005260;
 
-  /* Couleur d'Accent (cyan) */
+  /* Couleur d'Accent (cyan vibrant) */
   --color-accent-50: #E0F7FA;
   --color-accent-100: #B2EBF2;
   --color-accent-200: #80DEEA;
